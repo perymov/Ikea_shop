@@ -313,9 +313,9 @@ footer {
 	color: #b8860b;
 	overflow-y: auto;
 	overflow-x: hidden;
-	-webkit-transition: left 0.3s 0s;
-	-o-transition: left 0.3s 0s;
-	transition: left 0.3s 0s;
+	-webkit-transition: left 0.4s 0s;
+	-o-transition: left 0.4s 0s;
+	transition: left 0.4s 0s;
 	width: 20rem;
 	padding: 10rem 4rem 3rem;
 }
@@ -379,9 +379,9 @@ footer {
 	background-color: #7a6c47;
 	overflow-y: auto;
 	overflow-x: hidden;
-	-webkit-transition: left, right 0.2s 0s;
-	-o-transition: left, right 0.2s 0s;
-	transition: left, right 0.2s 0s;
+	-webkit-transition: left 0.6s 0s;
+	-o-transition: left 0.6s 0s;
+	transition: left 0.6s 0s;
 	width: 25rem;
 	padding: 10rem 3rem 3rem;
 	border-left: 2px solid #ccc;
@@ -989,6 +989,9 @@ select {
 		width: 50%;
 		left: auto;
 		right: -100%;
+		-webkit-transition: right 0.6s 0s;
+		-o-transition: right 0.6s 0s;
+		transition: right 0.6s 0s;
 	}
 
 	.subcatalog.subopen {
