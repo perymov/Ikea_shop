@@ -1,5 +1,10 @@
 
-const iWant = ['idd66', 'idd36', 'idd76', 'idd96'];
+// Это временный файл из которого данные будут разнесены по другим файлам
+// после чего этот файл можно будет удалить
+
+import { getData } from './getData.js';
+
+const wishList = ['idd066', 'idd036', 'idd076', 'idd096'];
 
 const cartlist = [
 	{
@@ -11,37 +16,41 @@ const cartlist = [
 		count: 1
 	},
 	{
-		id: 'idd01',
+		id: 'idd001',
 		count: 5
 	}
 ];
 
 export const loadData = () => {
 
-	if (location.search) {
-
-		const search = decodeURI(location.search);
+	// location - это объект браузера содержащий различные данные(о поиске, портах, пути к файлу, hash и другие)
+	if (location.search) { // проверяем есть ли на странице поиск
+		const search = decodeURI(location.search); // декодирование результатов поиска на русский язык
 		console.log(search);
-		const prop = search.split('=')[0].slice(1);
+		const prop = search.split('=')[0].slice(1); // разбиваем строку по знаку равно и оставляем первый элемент
+		// обрезая знак вопроса slice'ом
 		console.log('prop: ', prop);
-		const value = search.split('=');
-		console.log('value: ', value[1]);
+		const value = search.split('=')[1]; // разбиваем строку по знаку равно и оставляем второй элемент
+		console.log('value: ', value);
 
-		if (prop === 's') {
-			console.log(value);
-		} else if (prop === 'iWant') {
-			console.log(iWant);
-		} else {
-			console.log(prop, value);
+		// отправляем запросы на сервер сравнивая данные сервера с действиями пользователя
+		if (prop === 'search') {
+			getData.search(value, (data) => console.log(data));
+		} else if (prop === 'wishlist') {
+			getData.wishList(wishList, (data) => console.log(data));
+		} else if (prop === 'cat' || prop === 'subcat') {
+			getData.category(prop, value, (data) => console.log(data));
 		}
 	}
 
-	if (location.hash) {
-		console.log(location.hash.slice(1));
+	if (location.hash) { // проверяем есть ли на странице hash
+		getData.item(location.hash.slice(1), (data) => console.log(data));
 	}
 
-	if (location.pathname.includes('cart')) {
-		console.log(cartlist);
+	if (location.pathname.includes('cart')) { // проверяем есть ли на странице корзина
+		getData.cart(cartlist, (data) => console.log(data));
 	}
 
+	getData.catalog((data) => console.log(data));
+	getData.subCatalog('Декор', (data) => console.log(data));
 };
