@@ -26,7 +26,8 @@
 @font-face {
 	font-family: "Noto Sans";
 	src: local("Noto Sans Display Bold"), local("NotoSansDisplay-Bold"),
-		url("../fonts/Notosansdisplaybold.woff2") format("woff2"), url("../fonts/Notosansdisplaybold.woff") format("woff");
+		url("../fonts/Notosansdisplaybold.woff2") format("woff2"),
+		url("../fonts/Notosansdisplaybold.woff") format("woff");
 	font-weight: 700;
 	font-style: normal;
 }
@@ -433,8 +434,8 @@ footer {
 	display: -ms-grid;
 	display: grid;
 	-ms-grid-columns: minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem
-		minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem
-		minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr);
+		minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr)
+		1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr) 1.25rem minmax(0, 1fr);
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 	grid-column-gap: 1.25rem;
 	padding-top: 2rem;

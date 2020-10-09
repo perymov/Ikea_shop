@@ -1,8 +1,22 @@
+import { getData } from './getData.js';
+import { catalog } from './catalog.js';
+
 
 // генерируем верстку:
 const generateCatalog = () => {
-	// создаем переменную содеожащую верстку:
-	const catalog = `
+
+	getData.catalog((data) => { // формируем  верстку каталога после получения данных
+		//console.log(data);
+		let catalogList = '';
+
+		data.forEach(element => {
+			catalogList +=
+				`<li class="catalog-list__item">
+					<a href="goods.html?cat=${element}">${element}</a>
+				</li>`;
+		});
+		// создаем переменную содержащую верстку:
+		const catalogHTML = `
 		<div class="catalog">
 			<button type="button" class="btn btn-close catalog-btn" id="hnf-menu-close-btn" aria-expanded="true"
 				title="Закрыть меню" aria-label="Закрыть меню">
@@ -15,16 +29,14 @@ const generateCatalog = () => {
 			</button>
 			<h2>Каталог</h2>
 			<ul class="catalog-list">
-				<li class="catalog-list__item"><a href="goods.html?cat=Мебель">Мебель</a></li>
-				<li class="catalog-list__item"><a href="goods.html?cat=Кухня">Кухня</a></li>
-				<li class="catalog-list__item"><a href="goods.html?cat=Текстиль">Текстиль</a></li>
-				<li class="catalog-list__item"><a href="goods.html?cat=Освещение">Освещение</a></li>
-				<li class="catalog-list__item"><a href="goods.html?cat=Декор">Декор</a></li>
+				${catalogList}
 			</ul>
 		</div>
 	`;
-	// вставляем верстку в body методом insertAdjacentHTML перед концом body
-	document.body.insertAdjacentHTML('beforeend', catalog);
+		// вставляем верстку в body методом insertAdjacentHTML перед концом body
+		document.body.insertAdjacentHTML('beforeend', catalogHTML);
+		catalog();
+	});
 };
 
 export default generateCatalog; // экспортируем созданную верстку в главный файл index.js
