@@ -1,7 +1,7 @@
 
 import { getData } from './getData.js';
 
-const wishList = ['idd099'];
+const wishList = ["idd001", "idd067"];
 
 const generateItems = () => {
 
@@ -15,7 +15,23 @@ const generateItems = () => {
 		data.forEach(item => {
 			listItem.insertAdjacentHTML('afterbegin', `
 				<li>
-				${item.name}
+					<a class="goods-item__link" href="card.html#${item.id}">
+						<article class="goods-item">
+						<div class="goods-item__img">
+							<img
+								src=${item.img[0]}
+								alt=${item.name}>
+						</div>
+						<h3 class="goods-item__header">${item.name}</h3>
+								
+						<p class="goods-item__description">${item.description}</p>
+						<p class="goods-item__price">
+							<span class="goods-item__price-value">${item.price}</span>
+							<span class="goods-item__currency"> ₽</span>
+						</p>
+						<button class="btn btn-add-card" aria-label="Добравить в корзину" data-idd=${item.id}></button>
+						</article>
+					</a>
 				</li>
 			`);
 		});

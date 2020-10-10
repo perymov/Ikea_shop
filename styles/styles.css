@@ -999,6 +999,10 @@ select {
 		right: 0;
 		left: auto;
 	}
+
+	.btn-return {
+		transform: rotate(-180deg);
+	}
 }
 
 @media (max-width: 768px) {

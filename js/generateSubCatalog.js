@@ -10,7 +10,7 @@ const generateSubCatalog = () => {
 		list.forEach((item) => {
 			listHTML +=
 				`<li class="subcatalog-list__item">
-							<a href="goods.html?cat=${item}">${item}</a>
+							<a href="goods.html?subcat=${item}">${item}</a>
 						</li>`;
 		});
 		// создаем переменную содержащую верстку:
@@ -20,7 +20,13 @@ const generateSubCatalog = () => {
 			<svg focusable="false" class="svg-icon  hnf-svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
 				xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd"
-					d="M4.70613 11.2927L3.99902 11.9997L4.70606 12.7069L11.999 20.0008L13.4133 18.5867L7.82744 13.0001H19.9999V11.0001H782729L13.4144 5.41328L12.0002 3.99902L4.70613 11.2927Z">
+					d="M4 12 L12 4 L12 6 L6 12 Z">
+				</path>
+				<path fill-rule="evenodd" clip-rule="evenodd"
+					d="M4 12 L12 20 L12 18 L6 12 Z">
+				</path>
+				<path fill-rule="evenodd" clip-rule="evenodd"
+					d="M6 11 L20 11 L20 13 L5 13 Z">
 				</path>
 			</svg>
 		</button>
@@ -40,3 +46,4 @@ const generateSubCatalog = () => {
 };
 
 export default generateSubCatalog; // экспортируем созданную верстку в главный файл index.js
+

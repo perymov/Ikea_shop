@@ -24,7 +24,7 @@ const cartlist = [
 export const loadData = () => {
 
 	// location - это объект браузера содержащий различные данные(о поиске, портах, пути к файлу, hash и другие)
-	/* вырезаем в generateItems:
+	// вырезаем в generateItems:
 	if (location.search) { // проверяем есть ли на странице поиск
 		const search = decodeURI(location.search); // декодирование результатов поиска на русский язык
 		//console.log(search);
@@ -38,12 +38,12 @@ export const loadData = () => {
 		if (prop === 'search') {
 			getData.search(value, (data) => console.log(data));
 		} else if (prop === 'wishlist') {
-			getData.wishList(wishList, (data) => console.log(data));
+			//getData.wishList(wishList, (data) => console.log(data));
 		} else if (prop === 'cat' || prop === 'subcat') {
 			//getData.category(prop, value, (data) => console.log(data));
 		}
 	}
-*/
+
 
 	if (location.hash) { // проверяем есть ли на странице hash
 		getData.item(location.hash.slice(1), (data) => console.log(data));
