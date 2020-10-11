@@ -15,10 +15,10 @@ export const catalog = () => {  // экспортируем catalog со все�
 		// overlay = document.querySelector('.overlay'),
 		menuCatalog = document.querySelector('.catalog'), // получаем со страницы блок содержащий главное меню
 		closeBtn = document.querySelector('.btn-close'), // получаем со страницы кнопку закрытия меню(крестик)
-		catalogList = document.querySelector('.catalog-list'), // получаем со страницы список ссылок в главном меню 
+		//catalogList = document.querySelector('.catalog-list'), // получаем со страницы список ссылок в главном меню 
 		menuSubcatalog = document.querySelector('.subcatalog'), // получаем со страницы блок содержащий подменю
-		subcatalogHeader = document.querySelector('.subcatalog-header'), // получаем со страницы заголовок подменю
-		returnBtn = document.querySelector('.btn-return'), // получаем со страницы кнопку закрытия подменю
+		//subcatalogHeader = document.querySelector('.subcatalog-header'), // получаем со страницы заголовок подменю
+		//returnBtn = document.querySelector('.btn-return'), // получаем со страницы кнопку закрытия подменю
 		overlay = document.createElement('div'); // создаем блок с затемнением
 
 	// присваиваем вновь созданному элементу overlay соответствующий класс и помещаем его в тело body:

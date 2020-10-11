@@ -6,20 +6,20 @@ import { getData } from './getData.js';
 
 // const wishList = ['idd066', 'idd036', 'idd076', 'idd096']; вырезаем в generateItems
 
-const cartlist = [
-	{
-		id: 'idd016',
-		count: 3
-	},
-	{
-		id: 'idd066',
-		count: 1
-	},
-	{
-		id: 'idd001',
-		count: 5
-	}
-];
+// const cartlist = [
+// 	{
+// 		id: 'idd016',
+// 		count: 3
+// 	},
+// 	{
+// 		id: 'idd066',
+// 		count: 1
+// 	},
+// 	{
+// 		id: 'idd001',
+// 		count: 5
+// 	}
+// ];
 
 export const loadData = () => {
 
@@ -36,7 +36,7 @@ export const loadData = () => {
 
 		// отправляем запросы на сервер сравнивая данные сервера с действиями пользователя
 		if (prop === 'search') {
-			getData.search(value, (data) => console.log(data));
+			//getData.search(value, (data) => console.log(data));
 		} else if (prop === 'wishlist') {
 			//getData.wishList(wishList, (data) => console.log(data));
 		} else if (prop === 'cat' || prop === 'subcat') {
@@ -45,13 +45,13 @@ export const loadData = () => {
 	}
 
 
-	if (location.hash) { // проверяем есть ли на странице hash
-		getData.item(location.hash.slice(1), (data) => console.log(data));
-	}
+	// if (location.hash) { // проверяем есть ли на странице hash
+	// 	getData.item(location.hash.slice(1), (data) => console.log(data));
+	// }
 
-	if (location.pathname.includes('cart')) { // проверяем есть ли на странице корзина
-		getData.cart(cartlist, (data) => console.log(data));
-	}
+	// if (location.pathname.includes('cart')) { // проверяем есть ли на странице корзина
+	// 	getData.cart(cartlist, (data) => console.log(data));
+	// }
 
 	// getData.catalog((data) => console.log(data));
 	// getData.subCatalog('Кухня', (data) => console.log(data));
