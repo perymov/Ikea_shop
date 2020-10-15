@@ -8,7 +8,7 @@ const COUNTER = 6;
 
 const generateItems = () => {
 
-	const mainHeder = document.querySelector('.main-header');
+	const mainHeader = document.querySelector('.main-header');
 
 
 
@@ -79,7 +79,6 @@ const generateItems = () => {
 			if (btnAddCard) {
 				e.preventDefault();
 				userData.cartList = btnAddCard.dataset.idd;
-				console.log(userData.cartList);
 			}
 		});
 	};
@@ -96,13 +95,13 @@ const generateItems = () => {
 		// отправляем запросы на сервер сравнивая данные сервера с действиями пользователя
 		if (prop === 'search') {
 			getData.search(value, generateCards);
-			mainHeder.textContent = `Поиск: ${value}`;
+			mainHeader.textContent = `Поиск: ${value}`;
 		} else if (prop === 'wishlist') {
 			getData.wishList(userData.wishList, generateCards);
-			mainHeder.textContent = `Список желаний`;
+			mainHeader.textContent = `Список желаний`;
 		} else if (prop === 'cat' || prop === 'subcat') {
 			getData.category(prop, value, generateCards);
-			mainHeder.textContent = value;
+			mainHeader.textContent = value;
 		}
 	}
 };

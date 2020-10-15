@@ -31,8 +31,25 @@ const userData = {
 			this.cartlistData.push(obj);
 		}
 		setLocalStorage('cartlist', this.cartList);
-	}
+	},
 
+	set changeCountCartList(itemCart) {
+		let obj = this.cartlistData.find(item => item.id === itemCart.id);
+		obj.count = itemCart.count;
+
+		setLocalStorage('cartlist', this.cartList);
+	},
+
+	set deleteItemCart(idd) {
+		let index = -1;
+		this.cartList.forEach((item, i) => {
+			if (item.id === idd) {
+				index = i;
+			}
+		});
+		this.cartList.splice(index, 1);
+		setLocalStorage('cartlist', this.cartList);
+	}
 };
 
 export default userData;

@@ -1,6 +1,6 @@
 'use strict'; // распространяется на все импортированные файлы
 
-import './storage.js';
+//import './storage.js'; - импортируется в компоненты
 // импортируем в этот файл данные из других файлов, для импорта эти данные нужно экспортировать из соответствующих
 // файлов:
 // import { catalog } from './catalog.js';  - импорт элемента экспортированного первым методом, имя импортируемого
@@ -21,7 +21,8 @@ import generateItems from './generateItems.js'; // - импорт элемент
 // имя импортируемого элемента может быть любым и не обязан совпадать с именем экспортируемого элемента!!! Мы получаем
 // не функцию, объект и т.д., а данные в них содержащиеся 
 import generateItemPage from './generateItemPage.js';
-import { loadData } from './loadData.js'; // - импорт элемента экспортированного первым методом
+import generateCartPage from './generateCartPage.js';
+// import { loadData } from './loadData.js'; - импорт элемента экспортированного первым методом
 
 
 generateHeader();
@@ -29,6 +30,7 @@ generateFooter();
 generateCatalog();
 generateItems();
 generateItemPage();
+generateCartPage();
 //generateSubCatalog();
 //catalog();
-loadData();
+//loadData();
