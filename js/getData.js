@@ -7,11 +7,24 @@ const PARAM = {
 
 
 export const getData = {
-	url: 'database/dataBase.json', // путь к базе данных(пока локальный, на компьютере)
-	get(process) {
-		fetch(this.url)
-			.then(response => response.json())
-			.then(process);
+	url: 'database/dataBase.json', // путь к базе данных(локальный, на компьютере)
+	// на основании функции getResourse в файле test.js создадим новый метод в объекте getData
+	// для получения донных из бады данных:
+	async getData(url) {
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`Ошибка по адресу ${url}, статус ошибки ${response.status}`);
+		}
+
+		return await response.json();
+	},
+	// и в методе get будем вызывать данные из getData, т.е. меняем fetch(this.url) на getData
+	get(process) { // метод для получения данных в объекте getData
+		// fetch(this.url)
+		this.getData(this.url)
+			//.then(response => response.json()) - убираем данный метод
+			.then(process)
+			.catch((err) => console.error(err)); // используем метод catch для отлавливания ошибок
 	},
 	wishList(list, callback) {
 		this.get((data) => {

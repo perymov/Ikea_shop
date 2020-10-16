@@ -1,6 +1,85 @@
 import { getData } from './getData.js';
 import userData from './userData.js';
 
+//=========== проверяем функцию отправки данных из файла test.js:
+const sendData = async (url, data) => {
+	const response = await fetch(url, {
+		method: 'POST',
+		body: data
+	});
+	if (!response.ok) {
+		throw new Error(`Ошибка по адресу ${url}, статус ошибки ${response.status}`);
+	}
+
+	return await response.json();
+};
+
+// создаем функцию отправки корзины:
+
+const sendCart = () => {
+
+	const cartForm = document.querySelector('.cart-form'); // получаем форму состраницы корзины
+
+	/*const data = { - для теста создадим временный объект
+		name: 'Плюшевый мишка',
+		count: 3
+	};*/
+
+	cartForm.addEventListener('submit', (e) => { // навешиваем обработчик событий на кнопку submit
+		e.preventDefault(); // - отменяем стандартные действия браузера
+
+		const formData = new FormData(cartForm); // - создаем новую переменную для отправки данных в формате FormData
+		// которую можно сразу передавать на сервер без перевода в формат JSON при условии что сервер понимает FormData
+
+		// const cartList = JSON.stringify(data);  - создаем переменную в которую помещаем строку JSON с данными
+
+		// console.log(cartList);  выводим в консоль cartList 
+
+		// sendData('https://jsonplaceholder.typicode.com/posts', cartList); отправляем на сервер cartList
+
+		// formData.set('order', JSON.stringify(data));  в formData можно добавлять любые данные с помощью метода set 
+		// но нужно переводить их в формат JSON(смотри строку 34, создавать новую переменную не обязательно)
+
+		// formData.set('order', JSON.stringify(userData.cartList)); вместо временного объекта отправляем данные
+		// корзины из файла userData
+
+		// если сервер понимает только формат JSON:
+		// formData.set('order', userData.cartList); переводить данные в формат JSON и 
+		// писать JSON.stringify(userData.cartList) не обязательно(смотри строку 56)
+
+		const data = {}; // создаем пустой объект
+		for (const [key, value] of formData) { // при помощи деструктуризации получаем ключ и значение и 
+			// перебираем formData
+			data[key] = value; // в объект formData добавляем новый ключ key и присваиваем значение value
+		}
+
+		data.order = userData.cartList; // создаем новое свойство в объекте дата и присваиваем ему значение
+		// cartlist из userData и в итоге получаем массив, где элементы это объекты находящиеся в корзине
+
+		console.log(data);
+
+		/*sendData('https://jsonplaceholder.typicode.com/posts', formData) // отправляем на сервер formData
+			.then(() => {
+				cartForm.reset(); // очищаем форму после отправки данных 
+			})
+			.catch((err) => {
+				console.log(err); // выводим ошибку если что-то пошло не так
+			});*/
+
+		// отправляем на сервер data в формате JSON:
+		sendData('https://jsonplaceholder.typicode.com/posts', JSON.stringify(data))
+			.then(() => {
+				cartForm.reset(); // очищаем форму после отправки данных 
+			})
+			.catch((err) => {
+				console.log(err); // выводим ошибку если что-то пошло не так
+			});
+	});
+
+};
+
+//=====================================================================================================
+
 const generateCartPage = () => {
 
 	if (location.pathname.includes('cart')) {
@@ -84,6 +163,8 @@ const generateCartPage = () => {
 		}));
 
 		getData.cart(userData.cartList, renderCartList);
+
+		sendCart(); // вызываем функцию отправки формы
 	}
 };
 

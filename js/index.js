@@ -8,6 +8,7 @@
 import generateHeader from './generateHeader.js'; // - импорт элемента экспортированного вторым методом, причем имя 
 // импортируемого элемента может быть любым и не обязан совпадать с именем экспортируемого элемента!!! Мы получаем не 
 // функцию, объект и т.д., а данные в них содержащиеся
+import generateItemPage from './generateItemPage.js';
 import generateFooter from './generateFooter.js'; // - импорт элемента экспортированного вторым методом, причем имя 
 // импортируемого элемента может быть любым и не обязан совпадать с именем экспортируемого элемента!!! Мы получаем не 
 // функцию, объект и т.д., а данные в них содержащиеся 
@@ -20,16 +21,15 @@ import generateItems from './generateItems.js'; // - импорт элемент
 // import generateSubCatalog from './generateSubCatalog.js'; - импорт элемента экспортированного вторым методом, причем 
 // имя импортируемого элемента может быть любым и не обязан совпадать с именем экспортируемого элемента!!! Мы получаем
 // не функцию, объект и т.д., а данные в них содержащиеся 
-import generateItemPage from './generateItemPage.js';
 import generateCartPage from './generateCartPage.js';
 // import { loadData } from './loadData.js'; - импорт элемента экспортированного первым методом
 
 
 generateHeader();
+generateItemPage();
 generateFooter();
 generateCatalog();
 generateItems();
-generateItemPage();
 generateCartPage();
 //generateSubCatalog();
 //catalog();

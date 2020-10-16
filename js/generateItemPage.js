@@ -8,7 +8,8 @@ const generateItemPage = () => {
 	// применяем деструктуризацию вставляя объект(не создавая его внутри функции) вместо аргумента функции:
 	const renderCard = ({ category, count, description, id, img, name: itemName, price, subcategory }) => {
 
-		const goodItemHeader = document.querySelector('.good-item__header'),
+		const goodWrapper = document.querySelector('.good'),
+			goodItemHeader = document.querySelector('.good-item__header'),
 			goodItemNew = document.querySelector('.good-item__new'),
 			goodItemDescription = document.querySelector('.good-item__description'),
 			goodItemEmpty = document.querySelector('.good-item__empty'),
@@ -19,6 +20,7 @@ const generateItemPage = () => {
 			// breadcrumbList = document.querySelector('.breadcrumb__list'), для вставки верстки
 			breadcrumbLink = document.querySelectorAll('.breadcrumb__link'); // для замены текста в готовой верстке
 
+		goodWrapper.insertAdjacentHTML = '';
 		goodImages.textContent = '';
 		goodItemHeader.textContent = itemName;
 		goodItemDescription.textContent = description;
